@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos ご提案 | 株式会社エコハウス様 採用サイト制作</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep: #0D1F33;
+    --navy: #16324F;
+    --blue-line: #4E7FA3;
+    --mustard: #E0A93A;
+    --paper: #F4F1EA;
+    --ink: #2B2B2B;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans JP', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.85;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.eng{
+    font-family:'Space Grotesk','Noto Sans JP',sans-serif;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  .blueprint-bg{
+    background-color:var(--navy);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,0.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px);
+    background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:80px 6vw 60px;
+  }
+  .drawing-frame{
+    position:absolute;
+    inset:18px;
+    border:1px solid rgba(255,255,255,0.4);
+    pointer-events:none;
+  }
+  .drawing-frame::before,
+  .drawing-frame::after{
+    content:"";
+    position:absolute;
+    width:10px; height:10px;
+    border:1px solid var(--mustard);
+  }
+  .drawing-frame::before{ top:-6px; left:-6px; border-right:none; border-bottom:none;}
+  .drawing-frame::after{ bottom:-6px; right:-6px; border-left:none; border-top:none;}
+
+  .title-block{
+    position:absolute;
+    top:36px; right:36px;
+    text-align:right;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:11px;
+    letter-spacing:0.12em;
+    color:rgba(255,255,255,0.75);
+    line-height:1.9;
+  }
+  .title-block span{display:block;}
+  .title-block .em{color:var(--mustard);}
+
+  .hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:12px;
+    letter-spacing:0.2em;
+    color:var(--mustard);
+    margin-bottom:28px;
+  }
+  .hero-tag::before{
+    content:"";
+    width:28px; height:1px;
+    background:var(--mustard);
+  }
+
+  .hero h1{
+    font-size:clamp(2.1rem, 5.4vw, 4rem);
+    font-weight:900;
+    line-height:1.5;
+    max-width:14ch;
+    margin-bottom:28px;
+  }
+  .hero h1 .accent{ color:var(--mustard); }
+
+  .hero p.lead{
+    max-width:46ch;
+    font-size:1rem;
+    color:rgba(255,255,255,0.82);
+    margin-bottom:40px;
+  }
+
+  .scale-note{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:12px;
+    color:rgba(255,255,255,0.55);
+    letter-spacing:0.08em;
+  }
+  .scale-note .dim{
+    flex:1;
+    max-width:180px;
+    height:1px;
+    background:rgba(255,255,255,0.4);
+    position:relative;
+  }
+  .scale-note .dim::before,.scale-note .dim::after{
+    content:"";
+    position:absolute; top:-4px;
+    width:1px; height:9px;
+    background:rgba(255,255,255,0.4);
+  }
+  .scale-note .dim::before{ left:0; }
+  .scale-note .dim::after{ right:0; }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:30px; left:6vw;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:11px;
+    letter-spacing:0.2em;
+    color:rgba(255,255,255,0.6);
+    display:flex; align-items:center; gap:10px;
+  }
+  .scroll-cue .arrow{
+    width:1px; height:34px;
+    background:linear-gradient(to bottom, rgba(255,255,255,0.7), transparent);
+  }
+
+  /* ---------- SECTION COMMON ---------- */
+  section{ padding:110px 6vw; position:relative; }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:18px;
+    margin-bottom:56px;
+  }
+  .section-num{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:14px;
+    letter-spacing:0.15em;
+    color:var(--blue-line);
+    border:1px solid var(--blue-line);
+    padding:4px 10px;
+  }
+  .section-head h2{
+    font-size:clamp(1.5rem, 3vw, 2.2rem);
+    font-weight:900;
+    color:var(--navy);
+  }
+  .section-sub{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:12px;
+    letter-spacing:0.2em;
+    color:var(--blue-line);
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+
+  /* ---------- UNDERSTANDING ---------- */
+  .understand{
+    background:#fff;
+    border-top:1px solid #dcd6c8;
+    border-bottom:1px solid #dcd6c8;
+  }
+  .understand-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:60px;
+    align-items:start;
+  }
+  .understand-quote{
+    font-size:clamp(1.2rem, 2.3vw, 1.6rem);
+    font-weight:700;
+    color:var(--navy);
+    line-height:1.9;
+    border-left:3px solid var(--mustard);
+    padding-left:24px;
+  }
+  .understand-list{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .understand-item{
+    display:flex;
+    gap:16px;
+    font-size:0.95rem;
+    color:#444;
+  }
+  .understand-item .mark{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    color:var(--blue-line);
+    flex-shrink:0;
+  }
+
+  /* ---------- VALUE CARDS ---------- */
+  .value-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:1px;
+    background:#d9d2c0;
+    border:1px solid #d9d2c0;
+  }
+  .value-card{
+    background:var(--paper);
+    padding:38px 28px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    position:relative;
+  }
+  .value-card .vnum{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:12px;
+    letter-spacing:0.15em;
+    color:var(--blue-line);
+  }
+  .icon{
+    width:46px; height:46px;
+    position:relative;
+  }
+  .icon-layout{ border:2px solid var(--navy); }
+  .icon-layout::before{ content:""; position:absolute; top:8px; left:8px; right:8px; height:2px; background:var(--navy);}
+  .icon-layout::after{ content:""; position:absolute; top:16px; left:8px; width:14px; bottom:8px; border-right:2px solid var(--navy);}
+  .icon-build{ border:2px solid var(--navy); border-radius:2px;}
+  .icon-build::before{ content:""; position:absolute; left:6px; right:6px; top:30%; height:2px; background:var(--mustard);}
+  .icon-build::after{ content:""; position:absolute; left:6px; right:6px; top:62%; height:2px; background:var(--mustard);}
+  .icon-video{ border:2px solid var(--navy); border-radius:50%;}
+  .icon-video::before{
+    content:"";
+    position:absolute; top:50%; left:55%;
+    transform:translate(-50%,-50%);
+    width:0; height:0;
+    border-top:8px solid transparent;
+    border-bottom:8px solid transparent;
+    border-left:13px solid var(--navy);
+  }
+  .icon-form{ border:2px solid var(--navy); }
+  .icon-form::before{ content:""; position:absolute; left:8px; right:8px; top:12px; height:2px; background:var(--navy);}
+  .icon-form::after{ content:""; position:absolute; left:8px; top:22px; width:14px; height:14px; border-bottom:2px solid var(--mustard); border-right:2px solid var(--mustard); transform:rotate(45deg) translate(-2px,-4px);}
+  .icon-responsive{ display:flex; align-items:flex-end; gap:4px; }
+  .icon-responsive::before{ content:""; width:26px; height:34px; border:2px solid var(--navy);}
+  .icon-responsive::after{ content:""; width:10px; height:20px; border:2px solid var(--mustard);}
+
+  .value-card h3{
+    font-size:1.05rem;
+    color:var(--navy);
+    font-weight:700;
+  }
+  .value-card p{
+    font-size:0.88rem;
+    color:#555;
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process{
+    background:var(--navy-deep);
+    color:#fff;
+  }
+  .process .section-head h2{ color:#fff; }
+  .process .section-num{ color:var(--mustard); border-color:var(--mustard); }
+  .process .section-sub{ color:var(--mustard); }
+
+  .timeline{
+    position:relative;
+    padding-left:40px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:9px; top:6px; bottom:6px;
+    width:1px;
+    background:repeating-linear-gradient(to bottom, rgba(255,255,255,0.5) 0 6px, transparent 6px 12px);
+  }
+  .tl-item{
+    position:relative;
+    padding-bottom:48px;
+  }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-item::before{
+    content:"";
+    position:absolute;
+    left:-40px; top:2px;
+    width:19px; height:19px;
+    border:2px solid var(--mustard);
+    border-radius:50%;
+    background:var(--navy-deep);
+  }
+  .tl-step{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:12px;
+    letter-spacing:0.15em;
+    color:var(--mustard);
+    margin-bottom:6px;
+  }
+  .tl-item h3{
+    font-size:1.1rem;
+    margin-bottom:8px;
+    font-weight:700;
+  }
+  .tl-item p{
+    font-size:0.9rem;
+    color:rgba(255,255,255,0.75);
+    max-width:56ch;
+  }
+
+  /* ---------- CLOSING ---------- */
+  .closing{
+    background:var(--navy);
+    color:#fff;
+    text-align:center;
+    position:relative;
+  }
+  .closing .drawing-frame{ inset:14px; border-color:rgba(255,255,255,0.3); }
+  .closing h2{
+    font-size:clamp(1.6rem, 3.6vw, 2.6rem);
+    font-weight:900;
+    margin-bottom:20px;
+    line-height:1.6;
+  }
+  .closing p{
+    max-width:52ch;
+    margin:0 auto 42px;
+    color:rgba(255,255,255,0.8);
+    font-size:0.98rem;
+  }
+  .cta-btn{
+    display:inline-block;
+    background:var(--mustard);
+    color:var(--navy-deep);
+    font-weight:700;
+    padding:18px 48px;
+    letter-spacing:0.08em;
+    font-size:0.95rem;
+    border:2px solid var(--mustard);
+    transition:0.25s;
+  }
+  .cta-btn:hover{
+    background:transparent;
+    color:var(--mustard);
+  }
+  .closing-note{
+    margin-top:28px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:12px;
+    letter-spacing:0.1em;
+    color:rgba(255,255,255,0.5);
+  }
+
+  footer{
+    background:var(--navy-deep);
+    color:rgba(255,255,255,0.45);
+    text-align:center;
+    padding:28px 20px;
+    font-size:12px;
+    font-family:'Space Grotesk', sans-serif;
+    letter-spacing:0.08em;
+  }
+  footer .em{ color:var(--mustard); }
+
+  @media (max-width:860px){
+    .understand-grid{ grid-template-columns:1fr; gap:36px; }
+    .title-block{ display:none; }
+    section{ padding:80px 6vw; }
+  }
+  @media (max-width:480px){
+    .hero{ padding:70px 6vw 50px; }
+    .cta-btn{ padding:16px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero blueprint-bg">
+  <div class="drawing-frame"></div>
+  <div class="title-block">
+    <span>DRAWING&nbsp;NO. <span class="em">ECH-RECRUIT-01</span></span>
+    <span>CLIENT: 株式会社エコハウス</span>
+    <span>SCALE: NOT TO SCALE</span>
+    <span>DRAWN BY: <span class="em">Kairos</span></span>
+  </div>
+
+  <div class="hero-tag">PROPOSAL FROM KAIROS</div>
+  <h1>暮らしを設計しなおす会社の、<br>採用の<span class="accent">設計図</span>を、<br>私たちが引きます。</h1>
+  <p class="lead">
+    株式会社エコハウス様の採用サイト制作案件を拝見し、Kairosよりご提案いたします。
+    文章・動画・写真はすでにお手元にある。あとは、それらを一つの「建物」として
+    組み上げる設計と施工が必要です。私たちはそれをSTUDIOで形にします。
+  </p>
+  <div class="scale-note">
+    <span>STUDIO制作</span>
+    <span class="dim"></span>
+    <span>採用サイト一式</span>
+  </div>
+
+  <div class="scroll-cue">
+    <span class="arrow"></span>
+    SCROLL
+  </div>
+</header>
+
+<!-- ===== UNDERSTANDING ===== -->
+<section class="understand">
+  <div class="section-head">
+    <span class="section-num">01</span>
+    <div>
+      <div class="section-sub">Understanding</div>
+      <h2>この案件への理解</h2>
+    </div>
+  </div>
+
+  <div class="understand-grid">
+    <p class="understand-quote">
+      「素材」は揃っている。足りないのは、それを組み上げる<br>
+      “設計”と“手”です。
+    </p>
+
+    <div class="understand-list">
+      <div class="understand-item">
+        <span class="mark">／</span>
+        <span>文章の下書き、スタッフインタビュー動画、写真まで、コンテンツはすでに豊富にご用意されています。必要なのは、それらを採用サイトとして魅力的に組み立てるデザインと構築力です。</span>
+      </div>
+      <div class="understand-item">
+        <span class="mark">／</span>
+        <span>リノベーションという「既にあるものを活かし、新しい価値に作り変える」お仕事は、今回のサイト制作そのものと重なります。素材を活かしながら、新しい入口を作ります。</span>
+      </div>
+      <div class="understand-item">
+        <span class="mark">／</span>
+        <span>公開して終わりではなく、御社自身で文章・写真・募集要項を更新し続けられること。運用のしやすさまで含めて「設計」したいと考えています。</span>
+      </div>
+      <div class="understand-item">
+        <span class="mark">／</span>
+        <span>応募フォームの設置、スマートフォン対応、動画埋め込みなど、採用活動に直結する機能面も漏れなく、確実に仕上げます。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUE ===== -->
+<section class="value">
+  <div class="section-head">
+    <span class="section-num">02</span>
+    <div>
+      <div class="section-sub">What We Provide</div>
+      <h2>Kairosが提供できる価値</h2>
+    </div>
+  </div>
+
+  <div class="value-grid">
+    <div class="value-card">
+      <span class="vnum">01 / DESIGN</span>
+      <div class="icon icon-layout"></div>
+      <h3>素材を活かすデザイン設計</h3>
+      <p>ご用意いただく文章・写真・動画の魅力を最大化するレイアウトとデザインを構築。リノベーション会社らしい、温かみと信頼感を両立させます。</p>
+    </div>
+    <div class="value-card">
+      <span class="vnum">02 / BUILD</span>
+      <div class="icon icon-build"></div>
+      <h3>STUDIOでの確実な構築</h3>
+      <p>STUDIOでの制作実績をもとに、公開後も御社ご自身で更新しやすい構造で構築。無理のないシンプルな編集画面を意識して設計します。</p>
+    </div>
+    <div class="value-card">
+      <span class="vnum">03 / VIDEO</span>
+      <div class="icon icon-video"></div>
+      <h3>インタビュー動画の最適配置</h3>
+      <p>既存のスタッフインタビュー動画を、採用サイトの「人の魅力」が伝わる位置に自然に埋め込みます。読み手の視線導線を意識した配置です。</p>
+    </div>
+    <div class="value-card">
+      <span class="vnum">04 / FORM</span>
+      <div class="icon icon-form"></div>
+      <h3>応募・お問い合わせ導線設計</h3>
+      <p>申し込み・応募フォームを設置し、迷わず応募できる導線を設計。採用サイトのゴールである「応募」までをスムーズにつなぎます。</p>
+    </div>
+    <div class="value-card">
+      <span class="vnum">05 / RESPONSIVE</span>
+      <div class="icon icon-responsive"></div>
+      <h3>スマホ表示・公開対応</h3>
+      <p>スマートフォンでの閲覧を前提に表示を調整し、公開前の動作確認まで丁寧に実施。安心して公開日を迎えられる状態にします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="process blueprint-bg">
+  <div class="section-head">
+    <span class="section-num">03</span>
+    <div>
+      <div class="section-sub">Process</div>
+      <h2>進め方・スケジュールイメージ</h2>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-step">STEP 01</div>
+      <h3>キックオフMTG</h3>
+      <p>ご依頼内容・作業範囲・ご用意いただいている素材を確認し、サイトの構成や必要ページをすり合わせます。</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-step">STEP 02</div>
+      <h3>構成・デザイン設計</h3>
+      <p>提供いただく文章・写真・動画をもとに、ページ構成とデザインの方向性をご提案。イメージをすり合わせます。</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-step">STEP 03</div>
+      <h3>STUDIOでの構築</h3>
+      <p>デザインに基づき、STUDOO上でページを構築。インタビュー動画の埋め込み、応募フォームの設置を行います。</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-step">STEP 04</div>
+      <h3>レスポンシブ・動作確認</h3>
+      <p>スマートフォン表示を含めた全体の見え方を確認し、細部を調整。フォーム送信などの動作確認も行います。</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-step">STEP 05</div>
+      <h3>公開・運用レクチャー</h3>
+      <p>公開設定を行い、サイトを公開。公開後に御社で文章・写真・募集要項を更新できるよう、編集方法をご案内します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLOSING ===== -->
+<section class="closing blueprint-bg">
+  <div class="drawing-frame"></div>
+  <h2>この採用サイトという「建物」、<br>一緒に設計しませんか。</h2>
+  <p>
+    まずは簡単な自己紹介と、STUDIOでの制作実績をお送りします。
+    MTGにて詳しい要件や進め方をすり合わせながら、
+    御社にとって運用しやすく、応募につながる採用サイトを形にしていきます。
+  </p>
+  <a href="#" class="cta-btn">Kairosにメッセージを送る</a>
+  <div class="closing-note">PORTFOLIO AVAILABLE ON REQUEST — KAIROS WEB & SYSTEM TEAM</div>
+</section>
+
+<footer>
+  <span class="em">Kairos</span> — Web制作・システム開発チーム ／ ご提案資料
+</footer>
+
+</body>
+</html>
